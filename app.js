@@ -2,7 +2,7 @@
 
 const utils = {
     getCanvas(id) {
-        const canvas = document.getElementById(id);
+        const canvas = document.querySelector(`.${id}`);
         if (!canvas) {
             console.error(`There is no canvas with id ${id} on this page.`);
             return null;
