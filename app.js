@@ -1,6 +1,10 @@
-const canvas = document.querySelector(".canvas");
-const gl = canvas.getContext("webgl2")
+`use strict`
 
-if(!gl){
-    throw new Error("WebGk not supported");
-}
+(function init() {
+    const canvas = document.querySelector(".webgl");
+    const gl = canvas.getContext("webgl2");
+    console.log(gl)
+    if(!gl) {
+        throw new Error("WebGk not supported");
+    }
+})()
