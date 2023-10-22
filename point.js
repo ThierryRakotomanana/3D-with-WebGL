@@ -110,6 +110,7 @@ function loadShader(gl, type, source) {
 
     void main() {
         gl_Position = aVertexPosition;
+        gl_PointSize = 10.0;
     }
     `;
 

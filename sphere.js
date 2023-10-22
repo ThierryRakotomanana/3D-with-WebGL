@@ -2,7 +2,7 @@
 
 const utils = {
     getCanvas(id) {
-        const canvas = document.querySelector(`.${id}`);
+        const canvas = document.querySelector(`#${id}`);
         if (!canvas) {
             console.error(`There is no canvas with id ${id} on this page.`);
             return null;
@@ -16,7 +16,7 @@ const utils = {
 };
 
 (function init() {
-    const canvas = utils.getCanvas("webgl");
+    const canvas = utils.getCanvas("webgl2");
     gl = utils.getGLContex(canvas);
     // Définir la couleur d'effacement comme étant le noir, complètement opaque
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
@@ -83,10 +83,9 @@ const utils = {
         // Lier le tampon de position au programme
         const positionAttributeLocation = gl.getAttribLocation(shaderProgram, 'aPosition');
         gl.enableVertexAttribArray(positionAttributeLocation);
-        gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
         gl.vertexAttribPointer(positionAttributeLocation, 3, gl.FLOAT, false, 0, 0);
 
         // Dessiner la sphère
-        const numVertices = positions.length / 3;
-        gl.drawArrays(gl.POINTS, 0, numVertices);
+        const numVertices = positions.length /2;
+        gl.drawArrays(gl.POINT, 0, numVertices);
 })()
